@@ -1,0 +1,286 @@
+/* Configurações Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+    background-color: #fcfdfc;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tipografia Reutilizável */
+.section {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: #f4f7f4;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1e3f20;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #667b68;
+    margin-bottom: 50px;
+}
+
+/* Grid Layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Header */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    backdrop-filter: blur(10px);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e3f20;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #4caf50;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #4a5e4b;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #4caf50;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(18, 38, 20, 0.7), rgba(18, 38, 20, 0.8)), 
+                url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=1920') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding-top: 80px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    color: #e2ede3;
+    font-weight: 300;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #43a047;
+    transform: translateY(-2px);
+}
+
+/* Cards da Transição */
+.card-info {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    border: 1px solid #e8eee9;
+}
+
+.card-info h3 {
+    font-size: 1.5rem;
+    color: #1e3f20;
+    margin-bottom: 15px;
+}
+
+.card-info.highlight {
+    background: linear-gradient(135deg, #1e3f20, #2e5c31);
+    color: white;
+    border: none;
+}
+
+.card-info.highlight h3 {
+    color: #4caf50;
+}
+
+/* Boxes de Vantagens */
+.feature-box {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid #e2ede3;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    border-bottom-color: #4caf50;
+}
+
+.feature-box .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.feature-box h3 {
+    font-size: 1.3rem;
+    color: #1e3f20;
+    margin-bottom: 15px;
+}
+
+/* Linha do Tempo (Como Funciona) */
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 50px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: #e2ede3;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    opacity: 0; /* Usado para animação no JS */
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.timeline-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-number {
+    position: absolute;
+    left: -50px;
+    width: 42px;
+    height: 42px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 4px solid #fcfdfc;
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    color: #1e3f20;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #122614;
+    color: #a3b8a5;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #1e3f20;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav ul li {
+        margin: 0 15px;
+    }
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}
